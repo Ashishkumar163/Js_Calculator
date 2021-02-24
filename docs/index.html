@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Calculator</title>
+		<link href='logo.png' rel='icon'>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script>
+			var str = ''; //creating a global variable for assigning thre Inputs
+			function getInput(ele)
+			{
+				str+=ele; // concatination of the inputs
+				erasedispaly(str); //to display the inputs 
+			}
+			function evalfun()
+			{
+				var data = document.getElementById('text').value; //fetching the string 
+				var val = eval(data); //evaluating the string using eval function
+				str=' ';			//clearing the string 
+				erasedispaly(val); //to display the result
+			}
+			function erasedispaly(val)
+			{	
+				if (val=='0')
+				{
+					str=' ';
+				}
+				document.getElementById('text').value=val; //display the result or assigning blank to input fieldset
+			}
+		</script>
+		<style>
+			#table
+			{
+				position:absolute;
+				left:35%;
+				top:20%;
+				filter:drop-shadow(-30px -30px 3px cyan );
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class='container col-sm-4' id='table'>
+			<div class='row table table-bordered'>
+				<thead>
+					<tr>
+						<td>
+						<a href='https://github.com/Ashishkumar163' target='_blank'><img src='logo.png' style='height:84px;width:100px;'></a>
+						<h3 class='mt-4' style='font-family:Copperplate Gothic;color:#563D7C;'>Calculator</h3>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<input type='text' class='form-control bg-dark text-light input-lg rounded-0 col-sm-12 text-right'placeholder='0' id='text'/>
+					</tr>
+					<tr>
+						<td><button class='btn btn-lg btn-outline-primary rounded-0 col-sm-3' onclick="erasedispaly('0')">DEL</button></td>
+						<td><button class='btn btn-lg btn-outline-danger rounded-0 col-sm-3' onclick="getInput('%')">%</button></td>
+						<td><button class='btn btn-lg btn-outline-danger rounded-0 col-sm-3' onclick="getInput('/')">/</button></td>
+						<td><button class='btn btn-lg btn-outline-danger rounded-0 col-sm-3' onclick="getInput('*')">*</button></td>
+					</tr>
+					<tr>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('9')">9</button></td>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('8')">8</button></td>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('7')">7</button></td>
+						<td><button class='btn btn-lg btn-outline-danger rounded-0 col-sm-3' onclick="getInput('-')">-</button></td>
+					</tr>
+					<tr>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('6')">6</button></td>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('5')">5</button></td>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('4')">4</button></td>
+						<td><button class='btn btn-lg btn-outline-danger rounded-0 col-sm-3' onclick="getInput('+')">+</button></td>
+					</tr>
+					<tr>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('3')">3</button></td>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('2')">2</button></td>
+						<td><button class='btn btn-lg btn-outline-warning rounded-0 col-sm-3' onclick="getInput('1')">1</button></td>
+						<td><button class='btn btn-lg btn-outline-info rounded-0 col-sm-3' onclick="getInput('.')">.</button></td>
+					</tr>
+					<tr>
+						<td><button class='btn btn-lg btn-outline-success rounded-0 col-sm-12' onclick="evalfun()">=</button></td>
+					</tr>
+				<tbody>
+			</div>
+		</div>
+	</body>
+</html>
